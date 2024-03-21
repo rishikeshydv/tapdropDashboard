@@ -3,9 +3,10 @@
  * @see https://v0.dev/t/1rVO2lDk90D
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-
 export default function Section1() {
   return (
     <header className="w-full py-5 bg-black">
@@ -17,7 +18,7 @@ export default function Section1() {
           </Link>
         </div>
         <div className="flex items-end space-x-4 rounded-2xl">
-          <Button size="sm" className="text-black bg-white">Documentation</Button>
+          <Button size="sm" className="text-black bg-white"><a href="/docs"> Documentation</a></Button>
         </div>
       </div>
     </header>
