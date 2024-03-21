@@ -6,7 +6,6 @@ export default function Section3() {
 
     return (
         <div>
-
       <section className="w-full py-12 bg-gray-100 dark:bg-gray-800 mt-8">
         <div className="container grid gap-6 md:gap-8 px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-4 items-start">
@@ -16,7 +15,7 @@ export default function Section3() {
               </Link>
               <img
                 alt="Image 1"
-                className="object-cover w-full aspect-[4/3]"
+                className="object-cover w-full aspect-[4/3] bg-gray-300"
                 height={300}
                 src="/placeholder.svg"
                 width={400}
@@ -28,7 +27,7 @@ export default function Section3() {
               </Link>
               <img
                 alt="Image 2"
-                className="object-cover w-full aspect-[4/3]"
+                className="object-cover w-full aspect-[4/3] bg-gray-300"
                 height={300}
                 src="/placeholder.svg"
                 width={400}

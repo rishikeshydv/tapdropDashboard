@@ -13,23 +13,23 @@ export default function Section6() {
         <div className="">
         <Accordion type="single" collapsible className="px-60 mt-20 text-2xl">
         <AccordionItem value="item-1">
-          <AccordionTrigger className="border-2 border-black mt-6 rounded-2xl px-10">When selling my house, where should I begin?</AccordionTrigger>
+          <AccordionTrigger className="border-2 border-black mt-6 rounded-2xl px-10">What platforms do you support?</AccordionTrigger>
           <AccordionContent>
-          Start your home selling process by gathering information and considering your options. After choosing a selling path that works best for you, take the first step; contact an iBuyer, a real estate agent or begin home prep.
+          At the moment, Roblox only. We are working on adding support for other platforms.
           </AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="item-2" >
-        <AccordionTrigger className="border-2 border-black rounded-2xl px-10">How long does it take to sell a house?</AccordionTrigger>
+        <AccordionTrigger className="border-2 border-black rounded-2xl px-10">How can I make changes to the game?</AccordionTrigger>
           <AccordionContent>
-          On average, homes in the U.S. spend about one month on the market before going under contract, and another month or more to close. In 2020, the average time to sell a home was 55-70 days from list to close.
+          Change the settings in the dashboard and the changes will be reflected in the game once approved by the developer.
           </AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="item-3">
-        <AccordionTrigger className="border-2 border-black rounded-2xl px-10">What home seller mistakes should I avoid?</AccordionTrigger>
+        <AccordionTrigger className="border-2 border-black rounded-2xl px-10">Do you provide player data analytics?</AccordionTrigger>
           <AccordionContent>
-          On average, homes in the U.S. spend about one month on the market before going under contract, and another month or more to close. In 2020, the average time to sell a home was 55-70 days from list to close.
+          Currently, we support exporting database data to CSV files to analyze on 3rd party analytics. We are working on adding more analytics features.
           </AccordionContent>
         </AccordionItem>
       </Accordion>

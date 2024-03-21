@@ -12,23 +12,19 @@ export default function Section5() {
         }}
       >
         <div className="container grid items-center gap-6 px-4 md:px-6">
-          <div className="space-y-3">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Company Slogan Here</h2>
+          <div className="space-y-3 flex flex-col items-center justify-center">
+            <h2 className="text-7xl font-bold tracking-tighter md:text-6xl/tight">Update your Roblox game with just a few clicks</h2>
             <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              Short description of the company and its services.
+            From your dashboard make changes to your game in real-time
             </p>
           </div>
           <div className="mx-auto w-full max-w-sm">
             <img
               alt="Company Image"
-              className="object-cover rounded-lg"
-              height={300}
+              className="object-cover rounded-lg bg-gray-300"
               src="/placeholder.svg"
-              style={{
-                aspectRatio: "500/300",
-                objectFit: "cover",
-              }}
-              width={500}
+              height={800}
+              width={900}
             />
           </div>
         </div>
