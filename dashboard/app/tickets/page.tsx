@@ -65,6 +65,14 @@ export default function Component() {
                 status="Open"
                 date="Mar 16, 2024" 
             />
+                        <TicketProp 
+                ticketNumber="T004"
+                username="JaneSmith"
+                subject="Issue with account login"
+                status="Open"
+                date="Mar 16, 2024"
+                />
+
           </TableBody>
         </Table>
       </div>
