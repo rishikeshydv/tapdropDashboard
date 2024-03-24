@@ -7,7 +7,7 @@ export default function Section7() {
     <div>
 <section>
     {/* This DIV will be handling the social media icons */}
-    <div className='py-20 flex justify-between'>
+    <div className='py-20 flex justify-between text-gray-300'>
   <ul className='flex px-10'>
     <li className='mr-4'><AiFillTwitterCircle size="50px" /></li>
     <li className='mr-4'><AiOutlineMail size="50px" /></li>

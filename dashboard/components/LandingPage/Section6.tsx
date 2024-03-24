@@ -8,10 +8,10 @@ import {
 
 export default function Section6() {
   return (
-    <div><section className="bg-gray-200 py-40">
-        <h1 className="text-6xl font-bold text-center">Frequently Asked Questions</h1>
-        <div className="">
-        <Accordion type="single" collapsible className="px-60 mt-20 text-2xl">
+    <div><section className="py-32">
+        <h1 className="text-6xl font-bold text-center text-white">Frequently Asked Questions</h1>
+        <div className="text-gray-400">
+        <Accordion type="single" collapsible className="px-60 mt-20 text-xxl">
         <AccordionItem value="item-1">
           <AccordionTrigger className="border-2 border-black mt-6 rounded-2xl px-10">What platforms do you support?</AccordionTrigger>
           <AccordionContent>

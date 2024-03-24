@@ -9,7 +9,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 export default function Section1() {
   return (
-    <header className="w-full py-5 bg-black">
+    <header className="w-full py-5">
       <div className="container flex items-center px-4 md:px-6">
         <div/>
         <div className="flex items-center space-x-4 flex-1 justify-center ml-64">

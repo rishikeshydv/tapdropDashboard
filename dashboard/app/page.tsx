@@ -32,10 +32,9 @@ const ParticleRing = () => {
         <pointLight position={[-30, 0, -30]} power={10.0} />
         <PointCircle />
       </Canvas>
-
-      <div className="absolute rounded-xl top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-slate-200 font-medium text-2xl md:text-5xl pointer-events-none flex flex-col items-center justify-center">
-      <span className="text-lg font-bold"><img src="/NewLogo5.png" alt="home" width={500} height={500} /></span>
-      <Button size="lg" className="text-black bg-white mt-10"><a href="/getstarted"> Get Started</a></Button>
+      <div className="absolute rounded-xl top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-slate-200 font-medium text-2xl md:text-5xl flex flex-col items-center justify-center">
+      <span className="text-lg font-bold pointer-events-none"><img src="/NewLogo5.png" alt="home" width={500} height={500} /></span>
+      <a href="/getstarted"><Button size="lg" className="text-black bg-white mt-10 hover:bg-gray-300"> Get Started</Button></a>
       </div>
     </div>
   );

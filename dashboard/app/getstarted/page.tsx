@@ -1,5 +1,8 @@
-"use client"
-import {useEffect} from "react";
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { loadFirePreset } from "@tsparticles/preset-fire";
+import { initParticlesEngine, Particles } from "@tsparticles/react";
 import Plx from "react-plx";
 import Section1 from "@/components/LandingPage/Section1";
 import Section2 from "@/components/LandingPage/Section2";
@@ -11,6 +14,36 @@ import Section7 from "@/components/LandingPage/Section7";
 import { fairyDustCursor } from "cursor-effects";
 
 export default function Home() {
+  const [init, setInit] = useState(false);
+  //adding cursor effect
+  useEffect(() => {
+    const newCursor = fairyDustCursor();
+
+    return () => {
+      // You might need to clean up the effect when the component unmounts.
+      // This depends on the implementation of fairyDustCursor.
+      // newCursor.cleanup();
+    };
+  }, []); // Empty dependency array ensures this effect runs only once
+
+  //adding particle effect
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+      // starting from v2 you can add only the features you need reducing the bundle size
+      //await loadAll(engine);
+      //await loadFull(engine);
+      await loadFirePreset(engine);
+      //await loadBasic(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+
+
+  // adding parallax effect
   const parallaxData1 = [
     {
       start: 50,
@@ -53,38 +86,58 @@ export default function Home() {
     },
   ];
 
-  useEffect(() => {
-    const newCursor = fairyDustCursor();
-
-    return () => {
-      // You might need to clean up the effect when the component unmounts.
-      // This depends on the implementation of fairyDustCursor.
-      // newCursor.cleanup();
-    };
-  }, []); // Empty dependency array ensures this effect runs only once
-
+  const parallaxData5 = [
+    {
+      start: 900,
+      end: 4000,
+      properties: [
+        {
+          startValue: 1,
+          endValue: 1,
+          property: "scale",
+        },
+      ],
+    },
+  ];
+    //     if (init) {
+  //   return (
+  //     <Particles
+  //       id="tsparticles"
+  //       options={{
+  //         preset: "fire",
+  //       }}
+  //     />
+  //   );
+  // }
   return (
+    <>
+      {init && (
+        <Particles
+          id="tsparticles"
+          options={{
+            preset: "fire",
+          }}
+        />
+      )}
     <div className="flex flex-col min-h-[100dvh]">
-           <Plx className="MyAwesomeParallax" parallaxData={parallaxData1}>
-           <Section1 />
-      </Plx>
       <Plx className="MyAwesomeParallax" parallaxData={parallaxData1}>
-           <Section2 />
+        <Section2 />
       </Plx>
       <Plx className="MyAwesomeParallax" parallaxData={parallaxData3}>
-           <Section3 />
+        <Section3 />
       </Plx>
       <Plx className="MyAwesomeParallax" parallaxData={parallaxData4}>
-           <Section4 />
+        <Section4 />
       </Plx>
       <Plx className="MyAwesomeParallax" parallaxData={parallaxData4}>
-           <Section5 />
+        <Section5 />
       </Plx>
       <Plx className="MyAwesomeParallax" parallaxData={parallaxData4}>
-           <Section6 />
+        <Section6 />
       </Plx>
-      <Section7 />
+      <Plx className="MyAwesomeParallax" parallaxData={parallaxData5}>
+        <Section7 />
+      </Plx>
     </div>
-  )
+    </>  );
 }
-
