@@ -11,35 +11,35 @@ import Section4 from "@/components/LandingPage/Section4";
 import Section5 from "@/components/LandingPage/Section5";
 import Section6 from "@/components/LandingPage/Section6";
 import Section7 from "@/components/LandingPage/Section7";
-import { fairyDustCursor } from "cursor-effects";
+//import { fairyDustCursor } from "cursor-effects";
 
 export default function Home() {
   const [init, setInit] = useState(false);
   //adding cursor effect
-  useEffect(() => {
-    const newCursor = fairyDustCursor();
+  // useEffect(() => {
+  //   const newCursor = fairyDustCursor();
 
-    return () => {
-      // You might need to clean up the effect when the component unmounts.
-      // This depends on the implementation of fairyDustCursor.
-      // newCursor.cleanup();
-    };
-  }, []); // Empty dependency array ensures this effect runs only once
+  //   return () => {
+  //     // You might need to clean up the effect when the component unmounts.
+  //     // This depends on the implementation of fairyDustCursor.
+  //     // newCursor.cleanup();
+  //   };
+  // }, []); // Empty dependency array ensures this effect runs only once
 
   //adding particle effect
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-      // starting from v2 you can add only the features you need reducing the bundle size
-      //await loadAll(engine);
-      //await loadFull(engine);
-      await loadFirePreset(engine);
-      //await loadBasic(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
+  // useEffect(() => {
+  //   initParticlesEngine(async (engine) => {
+  //     // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+  //     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+  //     // starting from v2 you can add only the features you need reducing the bundle size
+  //     //await loadAll(engine);
+  //     //await loadFull(engine);
+  //     await loadFirePreset(engine);
+  //     //await loadBasic(engine);
+  //   }).then(() => {
+  //     setInit(true);
+  //   });
+  // }, []);
 
 
 
@@ -110,17 +110,17 @@ export default function Home() {
   //   );
   // }
   return (
-    <>
-      {init && (
-        <Particles
-          id="tsparticles"
-          options={{
-            preset: "fire",
-          }}
-        />
-      )}
-    <div className="flex flex-col min-h-[100dvh]">
-      <Plx className="MyAwesomeParallax" parallaxData={parallaxData1}>
+    // <>
+    //   {init && (
+    //     <Particles
+    //       id="tsparticles"
+    //       options={{
+    //         preset: "fire",
+    //       }}
+    //     />
+    //   )}
+    <div className="grid flex-1 bg-gradient-to-r from-slate-600 via-gray-700 to-zinc-800">
+      {/* <Plx className="MyAwesomeParallax" parallaxData={parallaxData1}>
         <Section2 />
       </Plx>
       <Plx className="MyAwesomeParallax" parallaxData={parallaxData3}>
@@ -137,7 +137,20 @@ export default function Home() {
       </Plx>
       <Plx className="MyAwesomeParallax" parallaxData={parallaxData5}>
         <Section7 />
-      </Plx>
+      </Plx> */}
+      <div className="fixed left-10 top-20">
+      <Section1 />
+      </div>
+      <div>
+      <Section2 />
+      <Section3 />
+      <Section4 />
+      <Section5 />
+      <Section6 />
+      <Section7 />
+      </div>
+
     </div>
-    </>  );
+    // </>  
+    );
 }
