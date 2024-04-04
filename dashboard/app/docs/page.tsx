@@ -5,62 +5,61 @@
  */
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-
+import Section1 from "@/components/LandingPage/Section1"
 export default function Docs() {
   return (
-    <div className="w-full overflow-hidden">
-      <div className="relative grid min-h-screen bg-gray-100 md:grid-cols-[280px_1fr] dark:bg-gray-800">
-        <div className="flex flex-col border-r border-gray-200 dark:border-gray-800">
-          <div className="flex items-center justify-between h-14 px-3 border-b border-gray-200 dark:border-gray-800">
-            <Link
-              className="flex items-center space-x-2 text-sm font-medium tracking-wider uppercase dark:text-gray-50"
-              href="#"
-            >
-              <FlagIcon className="h-6 w-6" />
-              <span>Docs</span>
-            </Link>
-            <button className="p-2 rounded-md md:hidden">
-              <ChevronRightIcon className="w-4 h-4" />
-            </button>
+    <div className="w-full overflow-hidden bg-gradient-to-r from-slate-600 via-gray-700 to-zinc-800">
+      <div className="relative grid min-h-screen md:grid-cols-[200px_1fr] ">
+      <div className="fixed left-10 top-20">
+    <Section1 />
+    </div>
+        <div className="flex flex-col ">
+        </div>
+        <div className="flex flex-col min-h-screen">
+          <div className="grid place-items-center h-14">
+            <div className="mx-4 my-10 text-6xl font-bold text-white">Documentation</div>
           </div>
-          <nav className="flex-1 overflow-y-auto py-4">
+          <div className="grid gap-4 px-16 border-white bg-slate-600 shadow-2xl rounded-3xl mt-20 mr-10 mb-40">
+            <div className="grid gap-4">
+
+            <nav className="flex-1 items-center justify-between overflow-y-auto py-4 my-10">
             <div className="px-3">
-              <ul className="space-y-1">
-                <li>
+              <ul className="space-y-1 flex flex-row items-center justify-center gap-10">
+                <li className="border w-40 rounded-full">
                   <Link
-                    className="flex items-center py-2 px-3 rounded-md font-medium text-gray-900 dark:text-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-gray-50 dark:hover:bg-gray-200"
+                    className="flex items-center py-2 px-6 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-100 hover:rounded-full dark:hover:text-black dark:hover:bg-gray-200"
                     href="#"
                   >
                     Introduction
                   </Link>
                 </li>
-                <li>
+                <li className="border rounded-full">
                   <Link
-                    className="flex items-center py-2 px-3 rounded-md font-medium text-gray-900 dark:text-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-gray-50 dark:hover:bg-gray-200"
+                    className="flex items-center w-40 py-2 px-8 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-100 hover:rounded-full dark:hover:text-gray-50 dark:hover:bg-gray-200"
                     href="#"
                   >
                     Installation
                   </Link>
                 </li>
-                <li>
+                <li className="border rounded-full">
                   <Link
-                    className="flex items-center py-2 px-3 rounded-md font-medium text-gray-900 dark:text-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-gray-50 dark:hover:bg-gray-200"
+                    className="flex items-center w-40 py-2 px-12 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-100 hover:rounded-full dark:hover:text-gray-50 dark:hover:bg-gray-200"
                     href="#"
                   >
                     Usage
                   </Link>
                 </li>
-                <li>
+                <li className="border rounded-full">
                   <Link
-                    className="flex items-center py-2 px-3 rounded-md font-medium text-gray-900 dark:text-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-gray-50 dark:hover:bg-gray-200"
+                    className="flex items-center w-40 py-2 px-6 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-100 hover:rounded-full dark:hover:text-gray-50 dark:hover:bg-gray-200"
                     href="#"
                   >
                     API Reference
                   </Link>
                 </li>
-                <li>
+                <li className="border rounded-full">
                   <Link
-                    className="flex items-center py-2 px-3 rounded-md font-medium text-gray-900 dark:text-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:hover:text-gray-50 dark:hover:bg-gray-200"
+                    className="flex items-center w-40 py-2 px-10 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-100 hover:rounded-full dark:hover:text-gray-50 dark:hover:bg-gray-200"
                     href="#"
                   >
                     Examples
@@ -69,17 +68,11 @@ export default function Docs() {
               </ul>
             </div>
           </nav>
-        </div>
-        <div className="flex flex-col min-h-screen">
-          <div className="grid place-items-center h-14 border-b border-gray-200 dark:border-gray-800">
-            <div className="mx-4 text-lg font-semibold">shadcn</div>
-          </div>
-          <div className="grid gap-4 p-4 md:grid-cols-[300px_1fr] lg:gap-8 lg:p-12">
-            <div className="grid gap-4">
+
               <div className="space-y-4" id="introduction">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Welcome to shadcn</h1>
-                  <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                  <h1 className="text-3xl font-bold text-white tracking-tighter sm:text-5xl">Welcome to Neo by Tapdrop</h1>
+                  <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                     shadcn is a collection of components that you can use to build your web app or website. These
                     components are designed to work well with Tailwind CSS and are built with accessibility and
                     developer experience in mind.
@@ -88,32 +81,32 @@ export default function Docs() {
               </div>
               <div className="space-y-4" id="installation">
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl">Installation</h2>
-                  <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                  <h2 className="text-2xl text-white font-bold tracking-tighter sm:text-4xl">Installation</h2>
+                  <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                     You can install shadcn via npm or yarn.
                   </p>
                 </div>
                 <div className="grid gap-4">
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-gray-900 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50">
+                  <div className="rounded-lg w-60 border border-gray-200 bg-gray-50 p-4 text-gray-900 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50">
                     npm install shadcn
                   </div>
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-gray-900 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50">
+                  <div className="rounded-lg w-60 border border-gray-200 bg-gray-50 p-4 text-gray-900 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50">
                     yarn add shadcn
                   </div>
                 </div>
               </div>
               <div className="space-y-4" id="usage">
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl">Usage</h2>
-                  <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                  <h2 className="text-2xl text-white font-bold tracking-tighter sm:text-4xl">Usage</h2>
+                  <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                     To use a component from shadcn, you can import it into your project and start using it.
                   </p>
                 </div>
               </div>
               <div className="space-y-4" id="api-reference">
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl">API Reference</h2>
-                  <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                  <h2 className="text-2xl text-white font-bold tracking-tighter sm:text-4xl">API Reference</h2>
+                  <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                     Here are some of the components available in shadcn.
                   </p>
                 </div>
@@ -125,7 +118,7 @@ export default function Docs() {
                         <th className="px-4 py-2 bg-gray-50 dark:bg-gray-950">Description</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="text-white">
                       <tr className="border-t border-gray-200 dark:border-gray-800">
                         <td className="px-4 py-2">Button</td>
                         <td className="px-4 py-2">The Button component is used to create buttons.</td>
@@ -144,18 +137,18 @@ export default function Docs() {
               </div>
               <div className="space-y-4" id="examples">
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl">Examples</h2>
-                  <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                  <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl text-white">Examples</h2>
+                  <p className="max-w-[900px] text-gray-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                     Here are some examples of how you can use the components available in shadcn.
                   </p>
                 </div>
                 <div className="grid gap-4">
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-gray-900 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50">
+                  <div className="rounded-lg border w-80 border-gray-200 bg-gray-50 p-4 text-gray-900 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50">
                     {`
                                     import { Button } from 'shadcn';
                                   `}
                   </div>
-                  <div className="grid place-items-center">
+                  <div className="grid place-items-center py-4 mb-5">
                     <Button>Button</Button>
                   </div>
                 </div>

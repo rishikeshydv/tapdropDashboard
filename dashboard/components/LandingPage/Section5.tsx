@@ -6,12 +6,11 @@ export default function Section5() {
     return (
 
         <section
-        className="w-full py-12 md:py-24 lg:py-32 mt-24"
-      >
+        className="w-full py-12 md:py-24 lg:py-32 mt-24 px-40">
         <div className="container grid items-center gap-6 px-4 md:px-6">
-          <div className="space-y-3 flex flex-col items-center justify-center">
-            <h2 className="text-7xl font-bold text-white tracking-tighter md:text-6xl/tight">Update your Roblox game with just a few clicks</h2>
-            <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+          <div className="space-y-3 flex flex-col items-center justify-center text-center">
+            <h2 className="text-7xl font-bold text-white tracking-tighter">Update your Roblox game with just a few clicks</h2>
+            <p className=" text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 mt-8">
             From your dashboard make changes to your game in real-time
             </p>
           </div>

@@ -4,7 +4,7 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 export default function Section7() {
   return (
-    <div>
+    <div className='px-40'>
 <section>
     {/* This DIV will be handling the social media icons */}
     <div className='py-20 flex justify-between text-gray-300'>

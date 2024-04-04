@@ -12,13 +12,13 @@ import { MdOutlineSupportAgent } from "react-icons/md";
 
 export default function Section1() {
   return (
-<div className="flex w-20 flex-col shrink-0 items-stretch gap-6">
+<div className="flex w-28 flex-col shrink-0 items-stretch gap-6 shadow-xl py-28 bg-slate-700 rounded-full">
 <div className="flex-1 grid place-items-center rounded-full">
   <Link className="p-2 hover:scale-75" href="#">
     <img src="/navbarIcons/navbar_logo.png" width={60} alt="" /> 
   </Link>
       </div>
-      <div className="flex-1 grid place-items-center mt-40">
+      <div className="flex-1 grid place-items-center mt-20">
         <Link className=" p-2 bg-gray-400 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-75" href="#">
         <FaBook className="h-10 w-10 p-2"/>
         </Link>

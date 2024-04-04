@@ -5,7 +5,7 @@ export default function Section4() {
   // Implement your component logic here
 
   return (
-    <div>
+    <div className="px-40">
 <div className="flex flex-col items-center justify-center text-7xl font-bold text-white px-40 py-10">
   <div>Uncover What Makes</div>
   <div>Your Game Tick</div>
