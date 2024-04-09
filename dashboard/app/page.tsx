@@ -7,6 +7,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
 import { pointsInner, pointsOuter } from "./utils";
 import { bubbleCursor } from "cursor-effects";
+import Image from "next/image";
 
 const ParticleRing = () => {
   useEffect(() => {
@@ -33,7 +34,9 @@ const ParticleRing = () => {
         <PointCircle />
       </Canvas>
       <div className="absolute rounded-xl top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-slate-200 font-medium text-2xl md:text-5xl flex flex-col items-center justify-center">
-      <span className="text-lg font-bold pointer-events-none"><img src="/NewLogo5.png" alt="home" width={500} height={500} /></span>
+      <span className="flex text-lg font-bold pointer-events-none">
+        <img src="/NewLogo5.png" alt="home" width={500} height={500} />
+    </span>
       <a href="/getstarted"><Button size="lg" className="text-black bg-white mt-10 hover:bg-gray-300"> Get Started</Button></a>
       </div>
     </div>

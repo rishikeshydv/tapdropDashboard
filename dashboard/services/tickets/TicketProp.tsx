@@ -32,12 +32,12 @@ const TicketProp = (props:TicketPropProps) => {
               </TableCell>
               <TableCell className="font-medium">{props.username}</TableCell>
               <TableCell className="font-medium">
-                <div className='flex items-center gap-2'>
+                <div className='flex items-center gap-10'>
                 {props.subject}
 
                 {/* Here is the popup for ticket open */}
                 <AlertDialog>
-              <AlertDialogTrigger className='bg-gray-900 p-2 rounded-lg'>Open</AlertDialogTrigger>
+              <AlertDialogTrigger className='bg-gray-900 p-2 rounded-lg px-8'>Open</AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle className='text-center font-bold text-2xl'>Ticket {props.ticketNumber}</AlertDialogTitle>
@@ -46,16 +46,11 @@ const TicketProp = (props:TicketPropProps) => {
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction>Continue</AlertDialogAction>
+                  <AlertDialogCancel>Back</AlertDialogCancel>
+                  <AlertDialogAction>Resolve</AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
-
-
-
-                <Button className='p-2'>Resolve</Button>
-
                 </div>
 
                 </TableCell>

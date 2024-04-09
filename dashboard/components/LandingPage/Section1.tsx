@@ -25,7 +25,7 @@ export default function Section1() {
         <FaBook className="h-10 w-10 p-2"/>
         </Link>
       </div>
-      <div className="flex-1 grid place-items-center">
+      <div className="flex-1 grid place-items-center" onClick={()=>router.push("/analytics")}>
         <Link className="bg-gray-400 rounded-full flex flex-col items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-75" href="#">
           <SiGoogleanalytics className="h-10 w-10 p-2" />
         </Link>

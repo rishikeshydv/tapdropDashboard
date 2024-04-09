@@ -6,42 +6,44 @@
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function TicketForm() {
   return (
     <div className="w-full max-w-2xl space-y-8 p-4 rounded-lg border border-gray-200 border-gray-200 dark:border-gray-800">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold">Submit a ticket</h1>
-        <p className="text-gray-500 dark:text-gray-400">
-          Please fill out the form below and we&apos;ll get back to you as soon as possible.
-        </p>
+        <h1 className="text-3xl font-bold">Ticket Details</h1>
       </div>
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="Enter your name" />
+            <Input id="name" placeholder="User1" readOnly />
           </div>
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" placeholder="Enter your email" type="email" />
+            <Input id="email" placeholder="user1@gmail.com" type="email" readOnly/>
           </div>
         </div>
         <div className="space-y-2">
           <Label htmlFor="subject">Subject</Label>
-          <Input id="subject" placeholder="Enter the subject" />
+          <Input id="subject" placeholder="Technical Error"  readOnly/>
         </div>
         <div className="space-y-2">
           <Label htmlFor="description">Description</Label>
-          <Textarea className="min-h-[100px]" id="description" placeholder="Enter the description" />
+          <Textarea className="min-h-[100px]" id="description" placeholder="Descriptions 101" />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 flex flex-col">
           <Label htmlFor="attachments">Attachments</Label>
           <span className="text-xs text-gray-500 dark:text-gray-400">
-            You can attach up to 5 files. Max 10MB each.
-            <Link href="#">Attachment guidelines</Link>
+          {/* Images here */}
+          <Image 
+          src={`/console1.webp`}
+          width={200}
+          height={200}
+          alt="issues"
+          >
+          </Image>
           </span>
         </div>
       </div>

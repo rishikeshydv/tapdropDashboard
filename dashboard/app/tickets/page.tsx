@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 import TicketProp from "@/services/tickets/TicketProp"
 import Link from "next/link"
+import Section1 from "@/components/LandingPage/Section1"
 
 
 
@@ -16,8 +17,17 @@ export default function Component() {
   //write a function that will redirect to /info/ticketNumber
   //so that we can retrieve the ticket number from the url
   //and then fetch the ticket details from the database using the ticket number
+  
   return (
-    <div className="flex flex-col gap-4 p-4 md:gap-8 md:p-6 h-screen w-full  bg-gradient-to-r from-slate-600 via-gray-700 to-zinc-800">
+
+    <div className="w-full overflow-hidden bg-gradient-to-r from-slate-600 via-gray-700 to-zinc-800">
+      <div className="relative grid min-h-screen md:grid-cols-[200px_1fr] ">
+      <div className="fixed left-10 top-20">
+    <Section1 />
+    </div>
+        <div className="flex flex-col ">
+        </div>
+        <div className="flex flex-col gap-4 p-4 md:gap-8 md:p-6">
       <div className="text-center">
         <div className="flex flex-col items-center">
         <h1 className="font-bold text-7xl text-white">Ticketing System</h1>
@@ -25,9 +35,9 @@ export default function Component() {
           New Ticket
         </Button>
         </div>
-
       </div>
-      <div className="flex items-center w-full max-w-sm rounded-lg border dark:border-gray-800">
+      <div className="bg-gray-700 p-8 rounded-2xl shadow-2xl">
+      <div className="flex items-center w-full max-w-sm rounded-lg border dark:border-gray-00">
         <SearchIcon className="h-4 w-4 ml-2.5 mr-2.5 text-white" />
         <Input
           className="w-full border-0 shadow-none appearance-none bg-gray-100/40 dark:bg-gray-800/40"
@@ -75,15 +85,24 @@ export default function Component() {
                 status="Open"
                 date="Mar 16, 2024"
                 />
+                                                        <TicketProp 
+                ticketNumber="T004"
+                username="JaneSmith"
+                subject="Issue with account login"
+                status="Open"
+                date="Mar 16, 2024"
+                />
 
           </TableBody>
         </Table>
       </div>
+      </div>
       <Section7 />
-    </div>
+      </div>
+      </div>
+    </div>   
   )
 }
-
 function SearchIcon(props:any) {
   return (
     <svg
