@@ -1,40 +1,22 @@
-import React from 'react';
+import React,{useEffect} from "react";
 import Link from "next/link"
 
 export default function Section3() {
-    // Implement your component logic here
+  useEffect(() => {
+    const container = document.querySelector('.image-container');
+    if (container) {
+      container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' });
+    }
+  }, []);
 
     return (
-        <div>
-      <section className="w-full py-40 px-40 mt-8">
-        <div className="container grid gap-6 md:gap-8 px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-4 items-start">
-            <div className="relative group grid overflow-hidden rounded-lg">
-              <Link className="absolute inset-0 z-10" href="#">
-                <span className="sr-only">View</span>
-              </Link>
-              <img
-                alt="Image 1"
-                className="object-cover w-full aspect-[4/3]"
-                height={300}
-                src="/console.png"
-                width={400}
-              />
-            </div>
-            <div className="relative group grid overflow-hidden rounded-lg">
-              <Link className="absolute inset-0 z-10" href="#">
-                <span className="sr-only">View</span>
-              </Link>
-              <img
-                alt="Image 2"
-                className="object-cover w-full aspect-[4/3]"
-                height={300}
-                src="/console.png"
-                width={400}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-        </div>    );
+
+        <div className='overflow-x-auto image-container flex gap-10'>
+        <img src="CUDO.webp" alt="" style={{width:200,height:100}} className=""/>
+        <img src="LOOTYG.webp" alt="" style={{width:200,height:80}} className="mt-3"/>
+        <img src="SDAO.webp" alt="" style={{width:200,height:80}} className="mt-3"/>
+        <img src="SLG.WEBP" alt="" style={{width:200,height:80}} className="mt-3"/>
+      </div>
+
+   );
 };

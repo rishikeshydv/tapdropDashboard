@@ -21,10 +21,7 @@ export default function Component() {
   return (
 
     <div className="w-full overflow-hidden bg-gradient-to-r from-slate-600 via-gray-700 to-zinc-800">
-      <div className="relative grid min-h-screen md:grid-cols-[200px_1fr] ">
-      <div className="fixed left-10 top-20">
-    <Section1 />
-    </div>
+      <div className="relative grid  ">
         <div className="flex flex-col ">
         </div>
         <div className="flex flex-col gap-4 p-4 md:gap-8 md:p-6">

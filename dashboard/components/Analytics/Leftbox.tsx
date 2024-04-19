@@ -1,44 +1,56 @@
-import React from 'react';
+"use client"
 
+import React, {useState} from 'react';
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import Chart from 'chart.js/auto'; 
-import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
+import { Switch } from '../ui/switch';
+import Image from 'next/image';
 
 
 const Leftbox = () => {
-    // Implement your component logic here
+    
+    const [earning, setEarning] = useState("$12,999K")
+    const [purchase, setPurchase] = useState("25,683")
+    const [average, setAverage] = useState("$29.99")
+
+    let weekly = ["$1,999K", "5,683", "$299.99"]
+    let monthly = ["$12,999K", "10,683", "$3000.00"]
+    let yearly = ["$20,999K", "25,683", "$29001.99"]
+    
+    const [changeNum, setChangeNum] = useState(0)
+    console.log(changeNum)
 
     return (
 
-        <div className="grid gap-4 px-6 border-white bg-slate-600 shadow-2xl rounded-3xl mt-20 mr-10 mb-40">
+        <div className="grid gap-4 px-6 border-white bg-slate-100 shadow-2xl rounded-3xl mt-20 mr-10" style={{width:1000}}>
         <div className="grid gap-4">
-
         <nav className="flex-1 items-center justify-between overflow-y-auto py-4">
         <div className="px-3">
-            <h1 className="text-center py-4 text-4xl font-bold text-white">Earning Overview</h1>
-          <ul className="space-y-1 flex flex-row items-center justify-center gap-6">
-            <li className="border w-40 rounded-full">
+            <h1 className="text-center py-4 text-4xl font-bold tracking-tighter">Earning Overview</h1>
+          <ul className="space-y-1 flex flex-row items-center justify-center gap-6 ">
+            <li className="border w-40 rounded-full bg-black">
               <Link
-                className="flex items-center py-2 px-12 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-100 hover:rounded-full dark:hover:text-black dark:hover:bg-gray-200"
+                className="flex items-center py-2 px-12 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-300 hover:rounded-full dark:hover:text-black dark:hover:bg-gray-200"
                 href="#"
+                onClick={()=>{setEarning(weekly[0]); setPurchase(weekly[1]); setAverage(weekly[2])}}
               >
                 Weekly
               </Link>
             </li>
-            <li className="border rounded-full">
+            <li className="border rounded-full bg-black">
               <Link
-                className="flex items-center w-36 py-2 px-11 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-100 hover:rounded-full dark:hover:text-gray-50 dark:hover:bg-gray-200"
+                className="flex items-center w-36 py-2 px-11 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-300 hover:rounded-full dark:hover:text-gray-50 dark:hover:bg-gray-200"
                 href="#"
+                onClick={()=>{setEarning(monthly[0]); setPurchase(monthly[1]); setAverage(monthly[2])}}
               >
                 Monthly
               </Link>
             </li>
-            <li className="border rounded-full">
+            <li className="border rounded-full bg-black">
               <Link
-                className="flex items-center w-36 py-2 px-11 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-100 hover:rounded-full dark:hover:text-gray-50 dark:hover:bg-gray-200"
+                className="flex items-center w-36 py-2 px-11 rounded-md font-medium text-white dark:text-gray-50 hover:text-black hover:bg-gray-300 hover:rounded-full dark:hover:text-gray-50 dark:hover:bg-gray-200"
                 href="#"
+                onClick={()=>{setEarning(yearly[0]); setPurchase(yearly[1]); setAverage(yearly[2])} }
               >
                 Yearly
               </Link>
@@ -47,122 +59,124 @@ const Leftbox = () => {
         </div>
       </nav>
         {/* Three Boxes */}
-      <div className="flex items-start w-full gap-4">
-  <div className="flex flex-col w-[250px] bg-slate-700 items-start gap-2 p-4 rounded-2xl border shadow-2xl">
+      <div className="flex items-start w-full gap-4 px-20 py-6">
+  <div className="flex flex-col w-[250px] bg-gray-900 items-start gap-2 p-4 rounded-2xl border shadow-2xl">
     <Image 
     src={`/chart_up.png`}
     alt=""
     height={40}
     width={40}
     />
-    <span className="text-sm mt-12 text-gray-400">Total Earnings</span>
-    <p className="text-4xl text-start text-white line-clamp-3 dark:text-gray-400">
-      $12,999K
+    <span className="text-sm mt-12 text-white font-semibold">Total Earnings</span>
+    <p className="text-4xl text-start text-white line-clamp-3 tracking-tighter font-bold dark:text-gray-400">
+      {earning}
     </p>
   </div>
 
-  <div className="flex flex-col w-[250px] bg-slate-700 items-start gap-2 p-4 rounded-2xl border shadow-2xl">
+  <div className="flex flex-col w-[250px] bg-gray-900 items-start font-bold gap-2 p-4 rounded-2xl border shadow-2xl">
     <Image 
     src={`/chart_down.png`}
     alt=""
     height={40}
     width={40}
     />
-    <span className="text-sm mt-12 text-gray-400">Purchase Count</span>
-    <p className="text-4xl text-start text-white line-clamp-3 dark:text-gray-400">
-      25,683
+    <span className="text-sm mt-12 text-white font-semibold">Purchase Count</span>
+    <p className="text-4xl text-start text-white line-clamp-3 tracking-tighter font-bold dark:text-gray-400">
+      {purchase}
     </p>
   </div>
 
-  <div className="flex flex-col w-[250px] bg-slate-700 items-start gap-2 p-4 rounded-2xl border shadow-2xl">
+  <div className="flex flex-col w-[250px] bg-gray-900 items-start gap-2 p-4 rounded-2xl border shadow-2xl">
     <Image 
     src={`/chart_up.png`}
     alt=""
     height={40}
     width={40}
     />
-    <span className="text-sm mt-12 text-gray-400">Average Purchase</span>
-    <p className="text-4xl text-start text-white line-clamp-3 dark:text-gray-400">
-      $29.99
+    <span className="text-sm mt-12 text-white font-semibold">Average Purchase</span>
+    <p className="text-4xl text-start  text-white font-bold line-clamp-3 tracking-tighter dark:text-gray-400">
+      {average}
     </p>
   </div>
 
 </div>
-          <canvas className="space-y-4 bg-gray-700 p-6 shadow-2xl rounded-2xl my-6" id="bar">
+<div className='flex items-end justify-end'>
+<Switch defaultChecked id="user-1" className='bg-white border' onClick={()=>{setChangeNum(changeNum+1)}}/>
+</div>
+          <canvas className="space-y-4 px-6 shadow-xl rounded-2xl hover:bg-gray-100" id="bar" style={{width:900}}>
           </canvas>
-          <div className="space-y-4 bg-gray-700 p-6 shadow-2xl rounded-2xl my-6" id="upcoming">
+          <div className="space-y-4 p-6 shadow-xl rounded-2xl my-6 hover:bg-gray-100" id="upcoming">
           <div className="flex items-center justify-between">
-          <p className="text-4xl text-white font-semibold p-6">Upcoming Products</p>
+          <p className="text-4xl font-bold px-6 tracking-tighter">Upcoming Products</p>
           <Button className="rounded-full border" variant="outline">
   <CalendarIcon className="mr-2 h-4 w-4" />
   9 April
 </Button>
         </div>
-        <hr className='border-gray-500 border-2'/>
+        <hr className='border-gray-500 border-1'/>
         
         <div className='flex items-center justify-center gap-4'>
-            <div className='border-gray-400 border-2 p-4 shadow-2xl rounded-2xl'>
-                <h1 className='text-white font-semibold'>Tap Shooter</h1>
+            <div className='border-gray-400 border-2 p-4 shadow-md rounded-2xl'>
+                <h1 className=' font-semibold'>Tap Shooter</h1>
                 <div className="flex gap-2 text-xs text-gray-400">
                 <ClockIcon className="h-4 w-4 -translate-x-1" />
                 12:00:00 PM
                 </div>
             </div>
-            <div className='border-gray-400 border-2 p-4 shadow-2xl rounded-2xl'>
-                <h1 className='text-white font-semibold'>Tap Shooter</h1>
+            <div className='border-gray-400 border-2 p-4 shadow-md rounded-2xl'>
+                <h1 className=' font-semibold'>Tap Shooter</h1>
                 <div className="flex gap-2 text-xs text-gray-400">
                 <ClockIcon className="h-4 w-4 -translate-x-1" />
                 12:00:00 PM
                 </div>
             </div>
-            <div className='border-gray-400 border-2 p-4 shadow-2xl rounded-2xl'>
-                <h1 className='text-white font-semibold'>Tap Shooter</h1>
+            <div className='border-gray-400 border-2 p-4 shadow-md rounded-2xl'>
+                <h1 className=' font-semibold'>Tap Shooter</h1>
                 <div className="flex gap-2 text-xs text-gray-400">
                 <ClockIcon className="h-4 w-4 -translate-x-1" />
                 12:00:00 PM
                 </div>
             </div>
-            <div className='border-gray-400 border-2 p-4 shadow-2xl rounded-2xl'>
-                <h1 className='text-white font-semibold'>Tap Shooter</h1>
+            <div className='border-gray-400 border-2 p-4 shadow-md rounded-2xl'>
+                <h1 className=' font-semibold'>Tap Shooter</h1>
+                <div className="flex gap-2 text-xs text-gray-400">
+                <ClockIcon className="h-4 w-4 -translate-x-1" />
+                12:00:00 PM
+                </div>
+            </div>
+
+        </div>
+
+        <div className='flex items-center justify-center gap-4'>
+        <div className='border-gray-400 border-2 p-4 shadow-md rounded-2xl'>
+                <h1 className=' font-semibold'>Tap Shooter</h1>
+                <div className="flex gap-2 text-xs text-gray-400">
+                <ClockIcon className="h-4 w-4 -translate-x-1" />
+                12:00:00 PM
+                </div>
+            </div>
+            <div className='border-gray-400 border-2 p-4 shadow-md rounded-2xl'>
+                <h1 className=' font-semibold'>Tap Shooter</h1>
+                <div className="flex gap-2 text-xs text-gray-400">
+                <ClockIcon className="h-4 w-4 -translate-x-1" />
+                12:00:00 PM
+                </div>
+            </div>
+            <div className='border-gray-400 border-2 p-4 shadow-md rounded-2xl'>
+                <h1 className=' font-semibold'>Tap Shooter</h1>
+                <div className="flex gap-2 text-xs text-gray-400">
+                <ClockIcon className="h-4 w-4 -translate-x-1" />
+                12:00:00 PM
+                </div>
+            </div>
+            <div className='border-gray-400 border-2 p-4 shadow-md rounded-2xl'>
+                <h1 className=' font-semibold'>Tap Shooter</h1>
                 <div className="flex gap-2 text-xs text-gray-400">
                 <ClockIcon className="h-4 w-4 -translate-x-1" />
                 12:00:00 PM
                 </div>
             </div>
         </div>
-
-        <div className='flex items-center justify-center gap-4'>
-            <div className='border-gray-400 border-2 p-4 shadow-2xl rounded-2xl'>
-                <h1 className='text-white font-semibold'>Tap Shooter</h1>
-                <div className="flex gap-2 text-xs text-gray-400">
-                <ClockIcon className="h-4 w-4 -translate-x-1" />
-                12:00:00 PM
-                </div>
-            </div>
-            <div className='border-gray-400 border-2 p-4 shadow-2xl rounded-2xl'>
-                <h1 className='text-white font-semibold'>Tap Shooter</h1>
-                <div className="flex gap-2 text-xs text-gray-400">
-                <ClockIcon className="h-4 w-4 -translate-x-1" />
-                12:00:00 PM
-                </div>
-            </div>
-            <div className='border-gray-400 border-2 p-4 shadow-2xl rounded-2xl'>
-                <h1 className='text-white font-semibold'>Tap Shooter</h1>
-                <div className="flex gap-2 text-xs text-gray-400">
-                <ClockIcon className="h-4 w-4 -translate-x-1" />
-                12:00:00 PM
-                </div>
-            </div>
-            <div className='border-gray-400 border-2 p-4 shadow-2xl rounded-2xl'>
-                <h1 className='text-white font-semibold'>Tap Shooter</h1>
-                <div className="flex gap-2 text-xs text-gray-400">
-                <ClockIcon className="h-4 w-4 -translate-x-1" />
-                12:00:00 PM
-                </div>
-            </div>
-        </div>
-        
-
           </div>
         </div>
       </div>

@@ -14,25 +14,25 @@ import { useRouter } from "next/navigation";
 export default function Section1() {
   const router = useRouter();
   return (
-<div className="flex w-28 flex-col shrink-0 items-stretch gap-6 shadow-xl py-28 bg-slate-700 rounded-full">
+<div className="flex w-24 flex-col shrink-0 items-stretch gap-6 shadow-2xl py-28 border-[#000C14] bg-[#] rounded-3xl">
 <div className="flex-1 grid place-items-center rounded-full" onClick={()=>router.push("/")}>
-  <Link className="p-2 hover:scale-75" href="#">
-    <img src="/navbarIcons/navbar_logo.png" width={60} alt="" /> 
+  <Link className="py-2 px-4 hover:scale-75" href="#">
+    <img src="/navbarIcons/navbar_logo.png" style={{width:35,height:45}} alt="" /> 
   </Link>
       </div>
       <div className="flex-1 grid place-items-center mt-20" onClick={()=>router.push("/docs")}>
-        <Link className=" p-2 bg-gray-400 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-75" href="#">
-        <FaBook className="h-10 w-10 p-2"/>
+        <Link className=" p-2 bg-gradient-to-r from-[#073C5F] from-5% via-[#06304C] via-50% to-[#052439] to-100% rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-75" href="#">
+        <FaBook className="h-10 w-10 p-2 text-gray-300"/>
         </Link>
       </div>
       <div className="flex-1 grid place-items-center" onClick={()=>router.push("/analytics")}>
-        <Link className="bg-gray-400 rounded-full flex flex-col items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-75" href="#">
-          <SiGoogleanalytics className="h-10 w-10 p-2" />
+        <Link className="bg-gradient-to-r from-[#073C5F] from-5% via-[#06304C] via-50% to-[#052439] to-100% rounded-full flex flex-col items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-75" href="#">
+          <SiGoogleanalytics className="h-10 w-10 p-2 text-gray-300" />
         </Link>
       </div>
       <div className="flex-1 grid place-items-center" onClick={()=>router.push("/tickets")}>
-        <Link className="bg-gray-400 rounded-full flex flex-col items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-75" href="#">
-          <MdOutlineSupportAgent className="h-12 w-12 p-2" />
+        <Link className="bg-gradient-to-r from-[#073C5F] from-5% via-[#06304C] via-50% to-[#052439] to-100% rounded-full flex flex-col items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-75" href="#">
+          <MdOutlineSupportAgent className="h-12 w-12 p-2 text-gray-300" />
         </Link>
       </div>
     </div>

@@ -1,13 +1,14 @@
+
 import React from "react";
 import Link from "next/link";
 
 export default function Section4() {
-  // Implement your component logic here
+
 
   return (
-    <div className="px-40">
-<div className="flex flex-col items-center justify-center text-7xl font-bold text-white px-40 py-10">
-  <div>Uncover What Makes</div>
+    <div className="px-40 mt-32">
+<div className="flex flex-col items-center justify-center text-7xl tracking-tight font-bold text-white px-40 py-10">
+  <div className="flex"><h1 className="bg-gradient-to-r from-[#22817F] from-5% via-[#1E716F] via-50% to-[#1A6160] to-100% inline-block text-transparent bg-clip-text">Uncover</h1> &nbsp;<h1 className="bg-gradient-to-r from-[#22817F] from-5% via-[#1E716F] via-50% to-[#1A6160] to-100% inline-block text-transparent bg-clip-text">What Makes</h1></div>
   <div>Your Game Tick</div>
 </div>
       <section className="container grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 mt-16">

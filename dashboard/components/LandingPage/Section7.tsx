@@ -15,7 +15,7 @@ export default function Section7() {
   
   <div className='flex flex-row'>
     <div className="ml-8 mr-8">
-    <Bottom 
+    <Bottom
       title="Resources"
       opt1="FAQ"
       opt2="Wiki"

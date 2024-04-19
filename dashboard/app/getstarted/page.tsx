@@ -6,7 +6,6 @@ import { initParticlesEngine, Particles } from "@tsparticles/react";
 import Plx from "react-plx";
 import Section1 from "@/components/LandingPage/Section1";
 import Section2 from "@/components/LandingPage/Section2";
-import Section3 from "@/components/LandingPage/Section3";
 import Section4 from "@/components/LandingPage/Section4";
 import Section5 from "@/components/LandingPage/Section5";
 import Section6 from "@/components/LandingPage/Section6";
@@ -119,7 +118,10 @@ export default function Home() {
     //       }}
     //     />
     //   )}
-    <div className="grid flex-1 bg-gradient-to-r from-slate-600 via-gray-700 to-zinc-800">
+    <div className="grid flex-1 bg-gradient-to-r w-full h-full"
+    style={{
+      background: "radial-gradient(ellipse at center,transparent 0%, #28464B 0%, #000015 130%)",
+    }}>
       {/* <Plx className="MyAwesomeParallax" parallaxData={parallaxData1}>
         <Section2 />
       </Plx>
@@ -143,7 +145,6 @@ export default function Home() {
       </div>
       <div>
       <Section2 />
-      <Section3 />
       <Section4 />
       <Section5 />
       <Section6 />

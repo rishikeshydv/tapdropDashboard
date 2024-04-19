@@ -4,18 +4,18 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 export default function Section7() {
   return (
-    <div className='mt-32'>
+    <div className='px-20 mt-16 py-4'>
 <section>
     {/* This DIV will be handling the social media icons */}
-    <div className=' flex justify-between text-gray-300'>
+    <div className=' flex justify-between text-black'>
   <ul className='flex'>
-    <li className='mr-4'><AiFillTwitterCircle size="50px" /></li>
-    <li className='mr-4'><AiOutlineMail size="50px" /></li>
+    <li className='mr-4'><AiFillTwitterCircle size="50px" className='text-black'/></li>
+    <li className='mr-4'><AiOutlineMail size="50px" className='text-black'/></li>
   </ul>
   
   <div className='flex flex-row'>
     <div className="ml-8 mr-8">
-    <Bottom 
+    <Bottom
       title="Resources"
       opt1="FAQ"
       opt2="Wiki"
@@ -43,6 +43,7 @@ export default function Section7() {
 
 
 </section>
+<h1 className='text-center mt-2'>2024 © All rights reserved by Tapdrop Inc.</h1>
     </div>
   )
 }
