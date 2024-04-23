@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import {TableRow, TableCell } from "@/components/ui/table"
 import Link from "next/link"
@@ -14,22 +16,23 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import TicketForm from '@/components/Tickets/TicketForm';
+import ResolveTicket from '@/queries/ResolveTicket';
 
 interface TicketPropProps {
-    ticketNumber: string;
     username: string;
     subject: string;
     status: string;
     date: string;
+    description: string;
+    num: string;
+    email: string;
 }
 
 
 const TicketProp = (props:TicketPropProps) => {
+
     return (
             <TableRow className=''>
-              <TableCell>
-                <Link href="#">{props.ticketNumber}</Link>
-              </TableCell>
               <TableCell className="font-medium">{props.username}</TableCell>
               <TableCell className="font-medium">
                 <div className='flex items-center gap-10'>
@@ -40,14 +43,27 @@ const TicketProp = (props:TicketPropProps) => {
               <AlertDialogTrigger className='bg-gray-900 p-2 rounded-lg px-8'>Open</AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle className='text-center font-bold text-2xl'>Ticket {props.ticketNumber}</AlertDialogTitle>
                   <AlertDialogDescription>
-              <TicketForm />
+              <TicketForm 
+              username={props.username}
+              email={props.username}
+              subject={props.subject}
+              description={props.description}
+              id={props.num}
+              />
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                   <AlertDialogCancel>Back</AlertDialogCancel>
-                  <AlertDialogAction>Resolve</AlertDialogAction>
+                  <AlertDialogAction onClick={()=>ResolveTicket(
+                    props.username,
+                    props.num,
+                    props.email,
+                    props.subject,
+                    props.date,
+                    props.description
+                  
+                  )}>Resolve</AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>

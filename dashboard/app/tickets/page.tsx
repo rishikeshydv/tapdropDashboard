@@ -3,20 +3,24 @@
  * @see https://v0.dev/t/OvdVgVOvtr3
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+"use client";
 import Section7 from "@/components/Tickets/Section7"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
+import GetTickets from "@/queries/GetTickets"
 import TicketProp from "@/services/tickets/TicketProp"
-import Link from "next/link"
-import Section1 from "@/components/LandingPage/Section1"
+import { useState, useEffect, use } from "react"
 
 
 
 export default function Component() {
-  //write a function that will redirect to /info/ticketNumber
-  //so that we can retrieve the ticket number from the url
-  //and then fetch the ticket details from the database using the ticket number
+  const [tickets, setTickets] = useState<any[]>([]);
+  useEffect(() => {
+  GetTickets().then((res) => {
+    setTickets(res);
+  });
+  }, []);
   
   return (
 
@@ -46,7 +50,6 @@ export default function Component() {
         <Table className="text-slate-300">
           <TableHeader className="font-bold">
             <TableRow>
-              <TableHead className="text-white font-bold text-lg">Ticket Number</TableHead>
               <TableHead className="text-white font-bold text-lg">Username</TableHead>
               <TableHead className="text-white font-bold text-lg">Subject</TableHead>
               <TableHead className="text-white font-bold text-lg">Status</TableHead>
@@ -54,41 +57,20 @@ export default function Component() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TicketProp 
-                ticketNumber="T001"
-                username="JaneDoe"
-                subject="Issue with account login"
-                status="Open"
-                date="Mar 16, 2024"
-            />
-            <TicketProp 
-                ticketNumber="T002"
-                username="JohnSmith"
-                subject="Issue with account login"
-                status="Open"
-                date="Mar 16, 2024" 
-            />
-                        <TicketProp 
-                ticketNumber="T003"
-                username="JaneSmith"
-                subject="Issue with account login"
-                status="Open"
-                date="Mar 16, 2024"
-                />
-                                        <TicketProp 
-                ticketNumber="T004"
-                username="JaneSmith"
-                subject="Issue with account login"
-                status="Open"
-                date="Mar 16, 2024"
-                />
-                                                        <TicketProp 
-                ticketNumber="T004"
-                username="JaneSmith"
-                subject="Issue with account login"
-                status="Open"
-                date="Mar 16, 2024"
-                />
+            {tickets.map((ticket) => (
+                          <TicketProp 
+                          key={ticket.id}
+                          num={ticket.num}
+                          email={ticket.email}
+                          username={ticket.username}
+                          subject={ticket.subject}
+                          status={ticket.status}
+                          description={ticket.description}
+                          date={ticket.date}
+                      />
+            ))}
+            
+
 
           </TableBody>
         </Table>
