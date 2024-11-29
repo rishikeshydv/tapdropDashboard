@@ -1,80 +1,136 @@
-"use client";
+"use client"
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import React, { useRef,useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Sphere } from "@react-three/drei";
-import { pointsInner, pointsOuter } from "./utils";
-import { bubbleCursor } from "cursor-effects";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { useForm,SubmitHandler } from "react-hook-form";
+import { auth, db } from "@/firebase/config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { collection, getDoc,doc, updateDoc } from "firebase/firestore";
+import poppins from "@/font/font";
+import { AiFillGoogleCircle } from "react-icons/ai";
+import { AiFillYahoo } from "react-icons/ai";
+import { FaMicrosoft } from "react-icons/fa6";
 import Image from "next/image";
+import Login from "@/firebase/auth/Login";
 
-const ParticleRing = () => {
-  useEffect(() => {
-    const newCursor = bubbleCursor();
+interface SignInData {
+  email: string;
+  password: string;
+}
 
-    return () => {
-      // You might need to clean up the effect when the component unmounts.
-      // This depends on the implementation of fairyDustCursor.
-      // newCursor.cleanup();
-    };
-  }, []); // Empty dependency array ensures this effect runs only once
-  return (
-    <div className="relative">
-      <Canvas
-        camera={{
-          position: [10, -7.5, -5],
-        }}
-        style={{ height: "100vh" }}
-        className="bg-slate-900"
-      >
-        <OrbitControls maxDistance={20} minDistance={10} />
-        <directionalLight />
-        <pointLight position={[-30, 0, -30]} power={10.0} />
-        <PointCircle />
-      </Canvas>
-      <div className="absolute rounded-xl top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-slate-200 font-medium text-2xl md:text-5xl flex flex-col items-center justify-center">
-      <span className="flex text-lg font-bold pointer-events-none">
-        <img src="/NewLogo5.png" alt="home" width={500} height={500} />
-    </span>
-      <a href="/getstarted"><Button size="lg" className="text-black bg-white mt-10 hover:bg-gray-300"> Get Started</Button></a>
-      </div>
-    </div>
-  );
-};
+export default function SignInPage() {
+  const router = useRouter();
+  const [user] = useAuthState(auth);
+  const [err, setErr] = useState<string>("");
+  
+  const { register, handleSubmit,formState: { errors } } = useForm<SignInData>();
 
-const PointCircle = () => {
-  const ref = useRef(null);
+  const onSubmit:SubmitHandler<SignInData> = async (data) => {
+    const { email, password } = data;
 
-  useFrame(({ clock }) => {
-    if ((ref.current as any)?.rotation) {
-      (ref.current as any).rotation.z = clock.getElapsedTime() * 0.05;
+    try {
+      if (email === "" || password === "") {
+        throw new Error("Please enter email and password");
+        console.log("Please enter email and password");
+      }
+
+      const receiverRef = collection(db, "User_Info");
+      const receiverDocRef =  doc(receiverRef, email);
+      const receiverSnapshot = await getDoc(receiverDocRef);
+
+      if(!receiverSnapshot.exists()){
+        console.log("User does not exist!");
+        setErr("User does not exist!");
+        throw new Error("User does not exist");
+      }
+        Login(email,password).then(() => {
+        router.push(`/dashboard/${email}`);
+
+          
+
+        });
+    } catch (error) {
+      console.error("Error signing in:", error);
     }
-  });
+  };
 
   return (
-    <group ref={ref}>
-      {pointsInner.map((point) => (
-        <Point key={point.idx} position={point.position} color={point.color} />
-      ))}
-      {pointsOuter.map((point) => (
-        <Point key={point.idx} position={point.position} color={point.color} />
-      ))}
-    </group>
-  );
-};
+    <div className={`${poppins.className} flex items-center justify-center`}>
+        <div className="h-screen w-1/2 flex flex-col items-center justify-center bg-slate-100">
+          <Image
+            src="/speety_logo.png"
+            alt="Speety Logo"
+            width={250}
+            height={130}
+            className="py-10"
+          />
+          <h1 className="text-xl text-gray-400">
+          </h1>
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+            <button className="bg-gray-300 rounded-xl w-96 h-16 mt-8 text-2xl font-bold">
+              <div className="flex flex-row items-center px-5">
+                <AiFillGoogleCircle className="w-12 h-12" />
+                <p className="ml-5">Continue with Google</p>
+              </div>
+            </button>
+            <button className="bg-gray-300 rounded-xl w-96 h-16 mt-2 text-2xl font-bold">
+              <div className="flex flex-row items-center px-5">
+                <AiFillYahoo className="w-16 h-16" />
+                <p className="ml-2">Continue with Yahoo</p>
+              </div>
+            </button>
+            <button className="bg-gray-300 rounded-xl w-96 h-16 mt-2 text-2xl font-bold">
+              <div className="flex flex-row items-center px-5">
+                <FaMicrosoft className="w-10 h-10" />
+                <p className="ml-2">Continue with Microsoft</p>
+              </div>
+            </button>
+            <div className="flex flex-row gap-2 items-center">
+              <hr className="mt-7 border-gray-400 border-2 flex-grow w-24" />
+              <p className="text-gray-500 text-xl mt-6 ">Or Continue with</p>
+              <hr className="border-2 border-gray-400 mt-7 flex-grow w-24" />
+            </div>
+            <div className="flex flex-col">
+              <label className="block uppercase tracking-wide text-lg font-semibold text-gray-800">
+                Email
+              </label>
+              <input
+                type="text"
+                required
+                {...register("email")}
+                className="rounded-md bg-gray-200 h-16 w-96 px-4 text-2xl"
+              />
+              {errors.email && <p className="text-red-500">Email is required.</p>}
+              <label className="block uppercase tracking-wide text-lg font-semibold text-gray-800">
+                Password
+              </label>
+              <input
+                type="password"
+                required
+                {...register("password")}
+                className="rounded-md bg-gray-200 h-16 w-96 px-4 text-2xl"
+              />
 
-const Point = ({ position, color }:{position:any,color:any}) => {
-  return (
-    <Sphere position={position} args={[0.1, 10, 10]}>
-      <meshStandardMaterial
-        emissive={color}
-        emissiveIntensity={0.5}
-        roughness={0.5}
-        color={color}
-      />
-    </Sphere>
+              {errors.password && <p className="text-red-500">Password is required.</p>}
+              <a href="#" className="mt-1 text-blue-700">
+                Forgot Password?
+              </a>
+              <p id="error_msg" className="text-md text-red-400 font-semibold">{err}</p>
+              <button
+              type="submit"
+                className="bg-gray-900 text-white mt-2 rounded-md h-12 w-96 font-bold text-xl"
+              >
+                Continue
+              </button>
+              <h3 className="mt-2 text-center text-xl">
+                Don&apos;t have an account yet?{" "}
+                <a href="/auth/signup" className="text-blue-600">
+                  Sign up!
+                </a>
+              </h3>
+            </div>
+          </form>
+        </div>
+      </div>
   );
-};
-
-export default ParticleRing;
+}
